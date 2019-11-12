@@ -8,8 +8,10 @@ const db = (model) => {
     const baseDir = path.join(__dirname, './.local')
 
     if (model) {
+        // get the file path
         var filename = path.join(__dirname, `./.local/${model}.json`)
 
+        // require the file from the file path
         var records = require(filename)
     }
     
@@ -20,9 +22,6 @@ const db = (model) => {
             if(!err && fd) {
                 // stringify the data
                 const stringData = JSON.stringify(data)
-
-                //insert(file, stringData)
-                //write data to file and close
 
                 fs.writeFile(fd, stringData, (err) => {
                     if(!err) {
