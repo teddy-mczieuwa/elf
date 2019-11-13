@@ -1,12 +1,11 @@
 
-const db = require('./db')('example1') //('example')
+const db = require('./db')('example3') //('example')
+
 
 db.dropDatabase(db, (err) => {
     if(err) {
-        console.log(err)
-    } else {
-        console.log('Database was successfully dropped')
-    }
+       return console.log(err)
+    } 
 })
 
 // db.insertRecord({name: 'Sandra', title:'Mrs'})

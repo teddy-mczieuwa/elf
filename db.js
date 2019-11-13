@@ -17,12 +17,13 @@ const db = (model) => {
     }
 
 
-    const dropDatabase = (callback) => {
-        console.log('baseDir',baseDir)
-        console.log('file:', model)
+    const dropDatabase = () => {
+        // console.log('baseDir',baseDir)
+        // console.log('file:', model)
+
         fs.unlink(`${baseDir}/${model}.json`, (err) => {
             if(!err) {
-                callback(false)
+                console.log(`${model} has been deleted`)
             } else {
                 console.log(err)
                 callback('Error deleting file', err)
