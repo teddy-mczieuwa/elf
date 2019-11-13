@@ -4,8 +4,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Elf</title>
-</head>
-<body>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
     
+  </head>
+  <style>
+    
+#exTab1 .tab-content {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+
+#exTab2 h3 {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+
+/* remove border radius for the tab */
+
+#exTab1 .nav-pills > li > a {
+  border-radius: 0;
+}
+
+/* change border radius for the tab , apply corners on top*/
+
+#exTab3 .nav-pills > li > a {
+  border-radius: 4px 4px 0 0 ;
+}
+
+#exTab3 .tab-content {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+
+.input{
+  width: 100%;
+}
+
+</style>
+
+
+<body style="background-color: #f8f9fa">
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand">
+            Elf
+        </a>
+    </nav>
+
+    <div class="container" style="background-color: white">
+        
+      <div class="row">
+
+        <!-- file tree section -->
+          <div class="col-md-3 border" style="min-height: 90vh; background-color: #dee2e6">
+              <div id="jstree_demo_div">
+                  <ul class="db_tree">
+                    
+                  </ul>
+              </div>
+          </div>
+        <!-- end of file tree section -->
+
+
+        <!-- main content -->
+          <div id="exTab2" class="col-md-9 border" style="overflow-y: scroll;">
+              <ul class="nav nav-tabs">
+                  <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#read">Read</a>
+                  </li>
+
+                  <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#create">Create</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#update">Update</a>
+                  </li>
+                  
+                  <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#delete">Delete</a>
+                  </li>
+
+                  <li class="nav-item">
+                      <a class="nav-link active" style="border: none;" data-toggle="tab" href="#extra"></a>
+                  </li>
+              </ul>
+
+              <div class="tab-content ">
+                <div class="tab-pane" id="create">
+                  <form id="create-form">
+                      
+                      <textarea rows="10" cols="10" id="newData" class="input"></textarea>
+                      <button class="btn btn-success" data-query="create">Create</button>
+                  </form>
+                </div>
+                
+                
+                <div class="tab-pane" id="read"></div>
+                <div class="tab-pane" id="update">
+                    <form id="update-form">
+                        <input type="number" placeholder="Enter an ID" id="recordId">
+                        <textarea rows="10" cols="10" id="updatedData" class="input"></textarea>
+                        <button class="btn btn-success" data-query="create">Update</button>
+                    </form>
+                </div>
+                <div class="tab-pane" id="delete">
+                    <form id="delete-form">
+                        <input type="number" placeholder="Enter an ID" id="deleteRecordId">
+                        <button class="btn btn-danger" data-query="create">Delete</button>
+                    </form>
+                </div>
+
+                
+              
+              </div>
+            </div>
+          </div>
+        <!-- end of main content -->
+          
+      </div>
+    </div>
+
+<script>
+  if (typeof module === 'object') {window.module = module; module = undefined;}
+</script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script> -->
+
+<script>
+  require('./renderer')
+</script>
 </body>
 </html>
