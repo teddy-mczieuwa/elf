@@ -77,6 +77,25 @@ const db = (model) => {
 
     // end private helper functions
 
+    // insert a new record 
+    const insertRecord = (newRecord) => {
+        return new Promise((resolve, reject) => {
+            const id = { id: _generateId(records) }
+            const date = { 
+                createdAt: _newDate(),
+                updatedAt: _newDate()
+            } 
+            // spread the content of newRecord into a new object 
+            // containing id, createdAt and updatedAt as default values
+            newRecord = { ...id, ...date, ...newRecord }
+
+            console.log(newRecord)
+            records.push(newRecord)
+            _writeJSONFile(filename, records)
+            resolve(newRecord)
+        })
+    }
+
     const dropDatabase = () => {
         // console.log('baseDir',baseDir)
         // console.log('file:', model)
@@ -124,7 +143,8 @@ const db = (model) => {
     return {
         records,
         createDatabase,
-        dropDatabase
+        dropDatabase,
+        insertRecord
     }
    
 }

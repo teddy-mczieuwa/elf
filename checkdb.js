@@ -1,14 +1,14 @@
 
-const db = require('./db')('example3') //('example')
+const db = require('./db')('example') //('example')
 
 
-db.dropDatabase(db, (err) => {
-    if(err) {
-       return console.log(err)
-    } 
-})
+// db.dropDatabase(db, (err) => {
+//     if(err) {
+//        return console.log(err)
+//     } 
+// })
 
-// db.insertRecord({name: 'Sandra', title:'Mrs'})
+db.insertRecord({Country: 'Ireland', Shengen: false})
 
 
 
