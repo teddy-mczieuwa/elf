@@ -4,6 +4,7 @@ const path = require('path')
 
 const db = (model) => {
     console.log(__dirname)
+
     // base directory for the database store
     const baseDir = path.join(__dirname, './.local')
 
@@ -13,6 +14,20 @@ const db = (model) => {
 
         // require the file from the file path
         var records = require(filename)
+    }
+
+
+    const dropDatabase = (callback) => {
+        console.log('baseDir',baseDir)
+        console.log('file:', model)
+        fs.unlink(`${baseDir}/${model}.json`, (err) => {
+            if(!err) {
+                callback(false)
+            } else {
+                console.log(err)
+                callback('Error deleting file', err)
+            }
+        })
     }
     
 
@@ -47,7 +62,8 @@ const db = (model) => {
 
     return {
         records,
-        createDatabase
+        createDatabase,
+        dropDatabase
     }
    
 }
