@@ -11,8 +11,6 @@ const db = require('./db')('example') //('example')
 db.insertRecord({Country: 'Ireland', Shengen: false})
 
 
-
-
 // db.createDatabase('example1',[], (err) => {
 //     if(!err) {
 //         console.log('database created')
