@@ -109,6 +109,18 @@ const db = (model) => {
             resolve(records)
         })
     }
+
+    // get single record by id
+    const findRecordById = (id) => {
+        return new Promise((resolve, reject) => {
+            _mustBeInArray(records, id)
+            .then(record => {
+                console.dir(record,{color:'orange'})
+                resolve(record)
+            })
+            .catch(err => reject(err))
+        })
+    }
         
 
         
@@ -161,7 +173,8 @@ const db = (model) => {
         createDatabase,
         dropDatabase,
         insertRecord,
-        findRecords
+        findRecords,
+        findRecordById
     }
    
 }
