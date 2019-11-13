@@ -1,3 +1,5 @@
+
+## Steps
 1. createdb
 2. dropDatabase
 3. private-helpers
@@ -11,6 +13,7 @@
 TODOS
 - Create a refresh button to work as the run button
 - setup the create database and drop database on the renderer process
+- create and implement the refresh (compile) button
 - modify the update
 
 USEFUL LINKS
