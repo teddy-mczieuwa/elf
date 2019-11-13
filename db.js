@@ -123,7 +123,26 @@ const db = (model) => {
     }
         
 
-        
+    // update currently existing record
+    const updateRecord = (id, newRecord) => {
+        return new Promise((resolve, reject) => {
+            _mustBeInArray(records, id)
+            .then(post => {
+                const index = records.findIndex(p => p.id == post.id)
+                id = { id: post.id }
+                const date = {
+                    createdAt: post.createdAt,
+                    updatedAt: _newDate()
+                } 
+                records[index] = { ...id, ...date, ...newRecord }
+                _writeJSONFile(filename, records)
+                resolve(records[index])
+            })
+            .catch(err => reject(err))
+        })
+    }
+
+
     const dropDatabase = () => {
         // console.log('baseDir',baseDir)
         // console.log('file:', model)
@@ -174,7 +193,8 @@ const db = (model) => {
         dropDatabase,
         insertRecord,
         findRecords,
-        findRecordById
+        findRecordById,
+        updateRecord
     }
    
 }

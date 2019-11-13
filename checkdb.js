@@ -10,8 +10,8 @@ const db = require('./db')('example') //('example')
 
 //db.insertRecord({star: 'Rigel', position: 6})
 //db.findRecords()
-db.findRecordById(1)
-
+//db.findRecordById(1)
+db.updateRecord(1, {star: 'Rigel', position:6})
 
 // db.createDatabase('example1',[], (err) => {
 //     if(!err) {
