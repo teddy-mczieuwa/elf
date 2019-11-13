@@ -96,6 +96,22 @@ const db = (model) => {
         })
     }
 
+    // get all records
+    const findRecords = () => {
+    return new Promise((resolve, reject) => {
+        // check for the length of the array
+        if (records.length === 0) {
+            resolve({
+                message: 'no records',
+            })
+        }
+            console.log(records)
+            resolve(records)
+        })
+    }
+        
+
+        
     const dropDatabase = () => {
         // console.log('baseDir',baseDir)
         // console.log('file:', model)
@@ -144,7 +160,8 @@ const db = (model) => {
         records,
         createDatabase,
         dropDatabase,
-        insertRecord
+        insertRecord,
+        findRecords
     }
    
 }

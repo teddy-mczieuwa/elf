@@ -8,8 +8,8 @@ const db = require('./db')('example') //('example')
 //     } 
 // })
 
-db.insertRecord({Country: 'Ireland', Shengen: false})
-
+//db.insertRecord({star: 'Rigel', position: 6})
+db.findRecords()
 
 
 
