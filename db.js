@@ -142,6 +142,21 @@ const db = (model) => {
         })
     }
 
+    // delete a single record
+    const deleteRecord = (id) => {
+        //console.log(typeof id)
+        return new Promise((resolve, reject) => {
+            _mustBeInArray(records, id)
+            .then(() => {
+                records = records.filter(p => p.id !== id)
+                _writeJSONFile(filename, records)
+                console.log(records)
+                resolve(records)
+            })
+            .catch(err => reject(err))
+        })
+    }
+
 
     const dropDatabase = () => {
         // console.log('baseDir',baseDir)
@@ -194,7 +209,8 @@ const db = (model) => {
         insertRecord,
         findRecords,
         findRecordById,
-        updateRecord
+        updateRecord,
+        deleteRecord
     }
    
 }
